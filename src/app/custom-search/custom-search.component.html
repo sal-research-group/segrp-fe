@@ -1,0 +1,18 @@
+<div class="card-container" style="justify-content: left">
+  <div class="col1" style="padding-right: 10px; width: 70%">
+    <input matInput type="text" title="busca" #busca style="width: 100%">
+  </div>
+  <div class="col2">
+    <button mat-icon-button color="primary" (click)="search(busca.value)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+  <div class="content">
+    <div *ngFor="let searchResult of searchResults">
+      <h3>{{searchResult.title}}</h3>
+      <h2>{{searchResult.snippet}}</h2>
+      <a><h3>{{searchResult.link}}</h3></a>
+    </div>
+  </div>
+</div>

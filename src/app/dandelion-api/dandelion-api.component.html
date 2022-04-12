@@ -1,0 +1,86 @@
+<div class="card-container" style="justify-content: left">
+
+    <div *ngIf="recurso=='entityExtraction'">
+      <div>
+        <textarea #busca1></textarea>
+      </div>
+      <div>
+        <button (click)="entityExtraction(busca1.value)">Extract Entity</button>
+      </div>
+      <div class="content">
+        <div *ngFor="let entity of entities">
+          <h3>{{entity.uri}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="recurso=='textSimilarity'">
+      <div>
+        <textarea #buscaa></textarea>
+        <textarea #buscab></textarea>
+      </div>
+      <div>
+        <button (click)="textSimilarity(buscaa.value,buscab.value)">Text Similarity</button>
+      </div>
+      <div class="content" *ngIf="similarity">
+        <h3>{{similarity*100}}%</h3>
+      </div>
+    </div>
+
+    <div *ngIf="recurso=='textClassification'">
+      <div>
+        <textarea #busca2></textarea>
+      </div>
+      <div>
+        <button (click)="textClassification(busca2.value)">Classify Text</button>
+      </div>
+      <div class="content">
+        <div *ngFor="let category of categories">
+          <h3>{{category.name}}</h3>
+          <h3>{{category.score}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="recurso=='languageDetection'">
+      <div>
+        <textarea #busca3></textarea>
+      </div>
+      <div>
+        <button (click)="languageDetection(busca3.value)">Detect Language</button>
+      </div>
+      <div class="content">
+        <div *ngFor="let language of languages">
+          <h3>{{language.lang}}</h3>
+          <h3>{{language.confidence}}</h3>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="recurso=='sentimentAnalysis'">
+      <div>
+        <textarea #busca4></textarea>
+      </div>
+      <div>
+        <button (click)="sentimentAnalysis(busca4.value)">Analyze Sentiment</button>
+      </div>
+      <div class="content" *ngIf="sentiment">
+        <h3>{{sentiment.type}}</h3>
+        <h3>{{sentiment.score}}</h3>
+      </div>
+    </div>
+
+    <div *ngIf="recurso=='wikiSearch'">
+      <div>
+        <textarea #busca5></textarea>
+      </div>
+      <div>
+        <button (click)="wikiSearch(busca5.value)">Wiki Search</button>
+      </div>
+      <div class="content">
+        <div *ngFor="let entity of entities">
+          <h3>{{entity.uri}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
